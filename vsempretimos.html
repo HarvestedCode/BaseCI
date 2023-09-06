@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizar Empréstimos</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./style/navbar.css">
+    <style>
+        /* Estilo personalizado para a página de visualização de empréstimos */
+        body {
+            background-image: url('./imgs/para\ osgêmeos!.png'); /* Substitua 'background.jpg' pelo caminho da sua imagem de fundo */
+            background-size: cover;
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
+            color: #312d36;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 800px; /* Reduz a largura da caixa */
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        h2 {
+            color: #7e556f;
+        }
+
+        /* Estilo para a lista de empréstimos */
+        .loan-list {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        .loan-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ccc;
+            padding: 10px 0;
+        }
+
+        .expand-button {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+            margin-right: 10px;
+        }
+
+        .details-container {
+            display: none;
+            width: 100%;
+            text-align: left;
+        }
+
+        .loan-item button {
+            background-color: #e4b317;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+            padding: 5px 10px;
+        }
+
+        .loan-item button:hover {
+            background-color: #a3bb44;
+        }
+        /* Estilo personalizado para a navbar */
+        .navbar {
+    background-color:  #a3bb44b6; /* Cor de fundo da navbar */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.navbar-logo img {
+    max-width: 100px; /* Ajuste o tamanho máximo da logo conforme necessário */
+}
+
+.navbar-menu {
+    list-style: none;
+    padding: 0;
+    display: flex;
+}
+
+.navbar-menu li {
+    margin-right: 20px;
+}
+
+.navbar-menu a {
+    color: #000000;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.navbar-menu a:hover {
+    color: #7e556f; /* Cor ao passar o mouse */
+}
+
+    </style>
+</head>
+<body>
+    <nav class="navbar fixed-top"> <!-- Adicione a classe 'fixed-top' para fixar a navbar no topo -->
+        <div class="navbar-logo">
+            <img src="./imgs/logo.png" alt="Logo da Empresa"> <!-- Substitua 'logo.png' pelo caminho da sua logo -->
+        </div>
+        <ul class="navbar-menu">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="cadastro_itens.html">Cadastro</a></li>
+            <li><a href="emprestimo.html">Empréstimo</a></li>
+            <li><a href="vsempretimos.html">Lista de Empréstimos</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h2>Visualizar Empréstimos</h2>
+        <ul class="loan-list" id="loanList">
+            <!-- Conteúdo da lista de empréstimos será inserido aqui -->
+        </ul>
+    </div>
+    
+    <!-- Carregue o SDK do Firebase e seu arquivo visualizar_emprestimos.js após a definição do HTML -->
+    <script src="https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.3.1/firebase-database.js"></script>
+    <script type="module" src="./script/bd.js"></script>
+    <script type="module" src="./script/visualizar_emprestimos.js"></script>
+    <script src="./script/navbar.js"></script>
+</body>
+</html>
