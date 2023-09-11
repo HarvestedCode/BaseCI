@@ -7,266 +7,227 @@
     <!-- Importe as bibliotecas de ícones e o CSS do Bootstrap -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        /* Estilo personalizado para a página de empréstimo */
-        body {
-            background-image: url('./imgs/para\ osgêmeos!.png');
-            background-size: cover;
-            background-repeat: no-repeat;
-            font-family: Arial, sans-serif;
-            color: #312d36;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
 
-        .container {
-            max-width: 400px;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            text-align: center;
-        }
-
-        h2 {
-            color: #7e556f;
-        }
-
-        form {
-            text-align: center;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 10px;
-            color: #312d36;
-            font-weight: bold;
-        }
-
-        select {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: #f5f5f5;
-            text-align: center;
-            font-size: 16px;
-            color: #312d36;
-        }
-
-        select option:checked {
-            background-color: #a3bb44;
-            color: #fff;
-        }
-
-        input[type="text"],
-        input[type="date"],
-        input[type="number"],
-        input[type="tel"] {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: #f5f5f5;
-            text-align: center;
-            font-size: 16px;
-        }
-
-        input[type="submit"] {
-            background-color: #a3bb44;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 16px;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #7e556f;
-        }
-
-        /* Estilo personalizado para a navbar */
-        .navbar {
-            background-color: #333;
-            position: fixed;
-            top: 0;
-            left: -300px;
-            width: 250px;
-            height: 100%;
-            padding-top: 20px;
-            overflow-y: auto;
-            transition: left 0.3s ease;
-        }
-
-        .navbar.show {
-            left: 0;
-        }
-
-        .navbar-logo img {
-            max-width: 100px;
-            margin: 0 auto;
-            display: block;
-        }
-
-        .navbar-icon {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            cursor: pointer;
-            color: #000000;
-            font-size: 24px;
-        }
-
-        .navbar-menu {
-            list-style: none;
-            padding: 0;
-        }
-
-        .navbar-menu li {
-            margin-bottom: 10px;
-        }
-
-        .navbar-menu a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 18px;
-            transition: color 0.3s;
-        }
-
-        .navbar-menu a:hover {
-            color: #a3bb44;
-        }
-
-        /* Estilo personalizado para a navbar */
-        .navbar-menu a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 18px;
-            transition: color 0.3s;
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .navbar-menu a:hover {
-            color: #a3bb44;
-        }
-
-        .navbar-menu a::after {
-            content: "\2192";
-            margin-left: 5px;
-            font-size: 16px;
-        }
-
-        /* Estilo personalizado para a navbar */
-        .navbar-menu a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 18px;
-            transition: color 0.3s;
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .navbar-menu a:hover {
-            color: #a3bb44;
-        }
-
-        .navbar-menu a::after {
-            content: "\2192";
-            margin-left: 5px;
-            font-size: 16px;
-        }
-
-        /* Informações do criador na parte inferior */
-        .navbar-creator-info {
-            text-align: center;
-            color: #a3bb44;
-            margin-top: 20px;
-            font-size: 14px;
-        }
-
-        .navbar-creator-info a {
-            color: #a3bb44;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        /* Estilo dos links do criador */
-        .navbar-creator-info a:hover {
-            text-decoration: underline;
-        }
-
-        /* Estilos para a caixa de diálogo modal */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.6);
-            overflow: auto;
-        }
-
-        .modal-content {
-            background-color: #fff;
-            margin: 15% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            border-radius: 5px;
-            max-width: 400px;
-            text-align: center;
-            position: relative;
-        }
-
-        .close {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            font-size: 20px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .close:hover {
-            color: #f00;
-        }
-
-        #modal-message {
-            font-size: 18px;
-            margin-bottom: 20px;
-        }
-
-        #modal-okay {
-            background-color: #a3bb44;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 16px;
-            transition: background-color 0.3s;
-        }
-
-        #modal-okay:hover {
-            background-color: #7e556f;
-        }
-    </style>
+    
 </head>
+<style>
+    /* Estilo personalizado para a página de empréstimo */
+    body {
+        background-image: url('./imgs/para\ osgêmeos!.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        font-family: Arial, sans-serif;
+        color: #312d36;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .container {
+        max-width: 600px;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        text-align: center;
+    }
+
+    h2 {
+        color: #7e556f;
+    }
+
+    form {
+        text-align: center;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 10px;
+        color: #312d36;
+        font-weight: bold;
+    }
+
+    /* Utilize o sistema de grade do Bootstrap para alinhar os campos lado a lado */
+    .form-row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .form-group {
+        flex-basis: calc(50% - 10px); /* Dividir em duas colunas com espaço entre elas */
+        margin-bottom: 20px; /* Margem inferior reduzida para alinhar os campos */
+    }
+
+    select,
+    input[type="text"],
+    input[type="date"],
+    input[type="number"],
+    input[type="tel"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f5f5f5;
+        text-align: center;
+        font-size: 16px;
+    }
+
+    select option:checked {
+        background-color: #a3bb44;
+        color: #fff;
+    }
+
+    input[type="submit"] {
+        position: relative;
+        top: 10px;
+        background-color: #a3bb44;
+        color: #fff;
+        padding: 10px 30px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 16px;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #7e556f;
+    }
+
+    /* Estilo personalizado para a navbar */
+    .navbar {
+        background-color: #333;
+        position: fixed;
+        top: 0;
+        left: -300px;
+        width: 250px;
+        height: 100%;
+        padding-top: 20px;
+        overflow-y: auto;
+        transition: left 0.3s ease;
+    }
+
+    .navbar.show {
+        left: 0;
+    }
+
+    .navbar-logo img {
+        max-width: 100px;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .navbar-icon {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        cursor: pointer;
+        color: #000000;
+        font-size: 24px;
+    }
+
+    .navbar-menu {
+        list-style: none;
+        padding: 0;
+    }
+
+    .navbar-menu li {
+        margin-bottom: 10px;
+    }
+
+    .navbar-menu a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 18px;
+        transition: color 0.3s;
+    }
+
+    .navbar-menu a:hover {
+        color: #a3bb44;
+    }
+
+    /* Informações do criador na parte inferior */
+    .navbar-creator-info {
+        text-align: center;
+        color: #a3bb44;
+        margin-top: 20px;
+        font-size: 14px;
+    }
+
+    .navbar-creator-info a {
+        color: #a3bb44;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    /* Estilo dos links do criador */
+    .navbar-creator-info a:hover {
+        text-decoration: underline;
+    }
+
+    /* Estilos para a caixa de diálogo modal */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        overflow: auto;
+    }
+
+    .modal-content {
+        background-color: #fff;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        border-radius: 5px;
+        max-width: 400px;
+        text-align: center;
+        position: relative;
+    }
+
+    .close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 20px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .close:hover {
+        color: #f00;
+    }
+
+    #modal-message {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+
+    #modal-okay {
+        background-color: #a3bb44;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 16px;
+        transition: background-color 0.3s;
+    }
+
+    #modal-okay:hover {
+        background-color: #7e556f;
+    }
+</style>
+
 <body>
     <!-- Navbar (invisível inicialmente) -->
     <nav id="navbar" class="navbar">
@@ -305,11 +266,14 @@
                 <option value="">Selecione um item</option>
             </select>
 
-            <label for="quantity">Quantidade:</label>
-            <input type="number" id="quantity" name="quantity" required>
+            <!-- Campos Quantidade e Número de Telefone em grupo (lado a lado) -->
+            <div class="field-group">
+                <label for="quantity">Quantidade:</label>
+                <input type="number" id="quantity" name="quantity" required>
 
-            <label for="phoneNumber">Número de Telefone:</label>
-            <input type="tel" id="phoneNumber" name="phoneNumber" required><br>
+                <label for="phoneNumber">Número de Telefone:</label>
+                <input type="tel" id="phoneNumber" name="phoneNumber" required>
+            </div>
 
             <label for="department">Setor:</label>
             <input type="text" id="department" name="department" required><br>
