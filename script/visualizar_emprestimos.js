@@ -45,10 +45,11 @@ document.addEventListener("DOMContentLoaded", () => {
                             detailsContainer.className = "details-container";
                             detailsContainer.style.display = "none";
 
-                            // Adicione todos os detalhes do item ao contêiner de detalhes
+                            // Adicione todos os detalhes do item ao contêiner de detalhes, incluindo a quantidade
                             detailsContainer.innerHTML = `
                                 <p>Nome da Pessoa: ${loan.nomePessoa}</p>
                                 <p>Item Emprestado: ${loan.itemEmprestado}</p>
+                                <p>Quantidade: ${loan.quantidade}</p> <!-- Exibe a quantidade emprestada -->
                                 <p>Número da Pessoa: ${loan.numeroPessoa}</p>
                                 <p>Setor: ${loan.setor}</p>
                                 <p>Data do Empréstimo: ${loan.dataEmprestimo}</p>

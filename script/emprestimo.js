@@ -55,6 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const borrowerName = document.getElementById("borrowerName").value;
         const loanedItem = loanedItemSelect.value;
+        const quantity = document.getElementById("quantity").value; // Obtenha a quantidade
         const phoneNumber = document.getElementById("phoneNumber").value;
         const department = document.getElementById("department").value;
         const loanDate = document.getElementById("loanDate").value;
@@ -64,10 +65,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const loansRef = ref(db, "emprestimos");
         const newLoanRef = push(loansRef);
 
-        // Crie um objeto com os dados do empréstimo
+        // Crie um objeto com os dados do empréstimo, incluindo a quantidade
         const newLoan = {
             nomePessoa: borrowerName,
             itemEmprestado: loanedItem,
+            quantidade: quantity, // Adicione a quantidade aqui
             numeroPessoa: phoneNumber,
             setor: department,
             dataEmprestimo: loanDate
