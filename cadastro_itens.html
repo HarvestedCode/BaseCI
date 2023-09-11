@@ -4,14 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Itens</title>
-    <link rel="stylesheet" href="./style/navbar.css">
-    <!-- Inclua o Bootstrap aqui, se desejar -->
+    <!-- Importe o CSS do Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <style>
 /* Estilo personalizado para a página de login */
 body {
-    background-image: url('./imgs/para\ osgêmeos!.png'); /* Substitua 'background.jpg' pelo caminho da sua imagem de fundo */
+    background-image: url('./imgs/para\ osgêmeos!.png'); /* Imagem de fundo */
     background-size: cover;
     background-repeat: no-repeat;
     font-family: Arial, sans-serif;
@@ -22,8 +21,9 @@ body {
     margin: 0;
 }
 
+/* Estilização do formulário de cadastro */
 .container {
-    max-width: 300px; /* Reduz a largura da caixa */
+    max-width: 300px;
     padding: 20px;
     background-color: #fff;
     border-radius: 10px;
@@ -32,7 +32,7 @@ body {
 }
 
 h2 {
-    color: #7e556f;
+    color: #7e556f; /* Cor do título */
 }
 
 form {
@@ -42,13 +42,13 @@ form {
 label {
     display: block;
     margin-bottom: 10px;
-    color: #312d36;
+    color: #312d36; /* Cor do rótulo */
     font-weight: bold;
 }
 
 input[type="text"],
 input[type="password"],
-input[type="number"]{
+input[type="number"] {
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
@@ -73,57 +73,212 @@ button[type="submit"] {
 button[type="submit"]:hover {
     background-color: #7e556f;
 }
-/* Estilo personalizado para a navbar */
-.navbar {
-    background-color:  #a3bb44b6; /* Cor de fundo da navbar */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
+
+
+        /* Estilo personalizado para a navbar */
+        .navbar {
+            background-color: #333;
+            position: fixed;
+            top: 0;
+            left: -300px;
+            width: 250px;
+            height: 100%;
+            padding-top: 20px;
+            overflow-y: auto;
+            transition: left 0.3s ease;
+        }
+
+        .navbar.show {
+            left: 0;
+        }
+
+        .navbar-logo img {
+            max-width: 100px;
+            margin: 0 auto;
+            display: block;
+        }
+
+        .navbar-icon {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            cursor: pointer;
+            color: #000000;
+            font-size: 24px;
+        }
+
+        .navbar-menu {
+            list-style: none;
+            padding: 0;
+        }
+
+        .navbar-menu li {
+            margin-bottom: 10px;
+        }
+
+        .navbar-menu a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        .navbar-menu a:hover {
+            color: #a3bb44;
+        }
+
+        /* Estilo personalizado para a navbar */
+        .navbar-menu a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .navbar-menu a:hover {
+            color: #a3bb44;
+        }
+
+        .navbar-menu a::after {
+            content: "\2192";
+            margin-left: 5px;
+            font-size: 16px;
+        }
+
+        /* Estilo personalizado para a navbar */
+        .navbar-menu a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .navbar-menu a:hover {
+            color: #a3bb44;
+        }
+
+        .navbar-menu a::after {
+            content: "\2192";
+            margin-left: 5px;
+            font-size: 16px;
+        }
+
+        /* Informações do criador na parte inferior */
+        .navbar-creator-info {
+            text-align: center;
+            color: #a3bb44;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        .navbar-creator-info a {
+            color: #a3bb44;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Estilo dos links do criador */
+        .navbar-creator-info a:hover {
+            text-decoration: underline;
+        }
+
+
+/* Estilos para a caixa de diálogo modal */
+.modal {
+    display: none; /* Inicialmente oculta */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Fundo escuro semitransparente */
+    overflow: auto; /* Rolagem se necessário */
 }
 
-.navbar-logo img {
-    max-width: 100px; /* Ajuste o tamanho máximo da logo conforme necessário */
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto; /* Centraliza verticalmente a caixa de diálogo */
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 5px;
+    max-width: 400px; /* Largura máxima da caixa de diálogo */
+    text-align: center;
+    position: relative;
 }
 
-.navbar-menu {
-    list-style: none;
-    padding: 0;
-    display: flex;
-}
-
-.navbar-menu li {
-    margin-right: 20px;
-}
-
-.navbar-menu a {
-    color: #000000;
-    text-decoration: none;
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
     font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #f00; /* Cor vermelha ao passar o mouse */
+}
+
+#modal-message {
     font-size: 18px;
-    transition: color 0.3s;
+    margin-bottom: 20px;
 }
 
-.navbar-menu a:hover {
-    color: #7e556f; /* Cor ao passar o mouse */
+#modal-okay {
+    background-color: #a3bb44;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    transition: background-color 0.3s;
 }
 
+#modal-okay:hover {
+    background-color: #7e556f;
+}
 
 </style>
 
-
 <body>
-    <nav class="navbar fixed-top"> <!-- Adicione a classe 'fixed-top' para fixar a navbar no topo -->
+     <!-- Navbar (invisível inicialmente) -->
+     <nav id="navbar" class="navbar">
+        <!-- Espaço para o logotipo -->
         <div class="navbar-logo">
-            <img src="./imgs/logo.png" alt="Logo da Empresa"> <!-- Substitua 'logo.png' pelo caminho da sua logo -->
+            <img src="./imgs/133911126.png" alt="Logo da Empresa">
         </div>
+
+        <!-- Ícone para abrir a navbar -->
+        <div id="navbar-icon" class="navbar-icon">&#9776;</div>
+
+        <!-- Conteúdo da navbar, como links e informações do criador -->
         <ul class="navbar-menu">
             <li><a href="index.html">Início</a></li>
             <li><a href="cadastro_itens.html">Cadastro</a></li>
             <li><a href="emprestimo.html">Empréstimo</a></li>
             <li><a href="vsempretimos.html">Lista de Empréstimos</a></li>
         </ul>
+
+        <!-- Informações do criador com ícones de redes sociais -->
+        <div class="navbar-creator-info">
+            <a href="https://www.instagram.com/ryan_f_Gouvea/"><i class="fab fa-instagram"></i> @ryan_f_Gouvea</a><br>
+            <a href="https://github.com/HarvestedCode"><i class="fab fa-github"></i> Meu GitHub</a>
+        </div>
     </nav>
+
+    <!-- Conteúdo da página -->
     <div class="container mt-5">
         <h2>Cadastro de Itens</h2>
         <form id="itemForm">
@@ -131,10 +286,10 @@ button[type="submit"]:hover {
                 <label for="itemName">Nome do Item:</label>
                 <input type="text" class="form-control" id="itemName" required>
             </div>
-            <div class="form-group">
-                <label for="itemId">ID do Item:</label>
-                <input type="text" class="form-control" id="itemId" required>
-            </div>
+
+            <label for="itemId">ID do Item:</label>
+            <input type="text" class="form-control" id="itemId" readonly>
+            
             <div class="form-group">
                 <label for="itemQuantity">Quantidade:</label>
                 <input type="number" class="form-control" id="itemQuantity" required>
@@ -150,11 +305,21 @@ button[type="submit"]:hover {
                     <option value="ruim">Ruim</option>
                 </select>
             </div>
+            <button type="button" id="generateIdButton" class="btn btn-primary">Gerar ID</button>
             <button type="submit" id="but" class="btn btn-primary">Cadastrar</button>
-
         </form>
     </div>
 
+    <!-- Caixa de diálogo modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id="modal-message"></p>
+            <button id="modal-okay">OK</button>
+        </div>
+    </div>
+
+    <!-- Importe os scripts JavaScript necessários -->
     <script type="module" src="./script/cadastro.js"></script>
     <script src="./script/navbar.js"></script>
 </body>

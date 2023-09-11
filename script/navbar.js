@@ -1,10 +1,10 @@
-// Arquivo navbar.js
-
 document.addEventListener("DOMContentLoaded", () => {
-    const navbarMenu = document.querySelector(".navbar-menu");
-    const navbarToggle = document.querySelector(".navbar-toggle");
+    const navbarIcon = document.querySelector(".navbar-icon");
+    const navbar = document.querySelector(".navbar");
 
-    navbarToggle.addEventListener("click", () => {
-        navbarMenu.classList.toggle("active");
+    // Adicione um ouvinte de evento de clique ao ícone da navbar
+    navbarIcon.addEventListener("click", () => {
+        // Alterne a classe "show" na navbar para mostrá-la ou ocultá-la
+        navbar.classList.toggle("show");
     });
 });

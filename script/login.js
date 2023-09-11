@@ -1,4 +1,16 @@
-// login.js
+// Função para mostrar a caixa de diálogo modal com uma mensagem
+function showModal(message) {
+    const modal = document.getElementById("myModal");
+    const modalMessage = document.getElementById("modal-message");
+    modalMessage.textContent = message;
+    modal.style.display = "block";
+}
+
+// Função para esconder a caixa de diálogo modal
+function hideModal() {
+    const modal = document.getElementById("myModal");
+    modal.style.display = "none";
+}
 
 document.addEventListener("DOMContentLoaded", function () {
     const loginForm = document.getElementById("loginForm");
@@ -11,11 +23,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Verifica o usuário e senha
         if (username === "adm.ci" && password === "000") {
-            alert("Login bem-sucedido!");
+            showModal("Login bem-sucedido!");
             // Redirecionar para a página após o login
-            window.location.href = "cadastro_itens.html";
+            setTimeout(function () {
+                window.location.href = "cadastro_itens.html";
+            }, 1500); // Redirecionar após 1.5 segundos (1500 milissegundos)
         } else {
-            alert("Usuário ou senha incorretos. Tente novamente.");
+            showModal("Usuário ou senha incorretos. Tente novamente.");
         }
     });
 });
+
+// Adicione um ouvinte de evento ao botão "OK" na caixa de diálogo modal para escondê-lo
+document.getElementById("modal-okay").addEventListener("click", hideModal);
